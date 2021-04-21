@@ -23,5 +23,42 @@ namespace System_Prestamos_Lf.Presentacion
         {
             InitializeComponent();
         }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Dominio.Empleados Usuarios = new Dominio.Empleados();
+                var ResultadoValidacion = Usuarios.VerificarInicioSesión(txtuser.Text, txtpass.Password);
+                if ((ResultadoValidacion == true) && (txtuser.Text == AccesoComun.Cache.CacheUsuario.NOMBRE_USUARIO) && (txtpass.Password == AccesoComun.Cache.CacheUsuario.CONTRASEÑA))
+                {
+                    MessageBox.Show(string.Format("¡Bienvenido(a) al sistema, {0} {1}!", AccesoComun.Cache.CacheUsuario.NOMBRE_EMPLEADO, AccesoComun.Cache.CacheUsuario.APELLIDO_EMPLEADO));
+                  
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña Incorrecto\nIntente de nuevo", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    txtpass.Password = string.Empty;
+                    txtpass.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            { DragMove(); }
+            catch (Exception){ }
+        }
     }
 }
