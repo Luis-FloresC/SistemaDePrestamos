@@ -1,0 +1,65 @@
+﻿<Window x:Class="System_Prestamos_Lf.Presentacion.PantallaDeCarga"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:System_Prestamos_Lf.Presentacion"
+        xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        mc:Ignorable="d"
+        Title="PantallaDeCarga" Height="323.139" Width="700">
+    <Grid MouseDown="Grid_MouseDown">
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#31324A" Offset="0.4"/>
+                <GradientStop Color="#164F90" Offset="0.4"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3">
+            <StackPanel Width="350">
+                <Image Source="/System_Prestamos_Lf;component/Recursos/img/Fondo_03.png" Height="239" VerticalAlignment="Top" Margin="4,30,84,30" Stretch="Fill"/>
+            </StackPanel>
+            <StackPanel Width="350">
+                <StackPanel Margin="20 40">
+                    <TextBlock Text="Bienvenido Sr(a)" Margin="20" Foreground="White" TextAlignment="Center" FontSize="35"  FontFamily="Georgia"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="0">
+                        <Label Margin="100,0,30,0" 
+                                 x:Name="txtuser" 
+                                 Content="Usuario"
+                                 FontSize="25"
+                                 materialDesing:HintAssist.Hint="Usuario"
+                                 Foreground="White"
+                                VerticalContentAlignment="Center"
+                                 Width="auto" BorderBrush="white" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    
+                    <ProgressBar
+                               Style="{StaticResource MaterialDesignCircularProgressBar}"
+                               Value="0"
+                               Foreground="White"   
+                               IsIndeterminate="True"
+                               Maximum="30" 
+                               x:Name="BAR"
+                               Height="50" Margin="5"
+                               Width="50" FontSize="24" />
+                    <Label Margin="20" 
+                                 x:Name="lbload" 
+                                 Content="%"
+                                 FontSize="30"
+                                 materialDesing:HintAssist.Hint="Usuario"
+                                 Foreground="White"
+                                VerticalContentAlignment="Center"
+                                />
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

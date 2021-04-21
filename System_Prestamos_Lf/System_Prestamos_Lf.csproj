@@ -110,6 +110,9 @@
     <Compile Include="Presentacion\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\PantallaDeCarga.xaml.cs">
+      <DependentUpon>PantallaDeCarga.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -139,6 +142,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Presentacion\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\PantallaDeCarga.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

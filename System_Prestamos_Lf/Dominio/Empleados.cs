@@ -24,5 +24,13 @@ namespace System_Prestamos_Lf.Dominio
             }
         }
 
+
+        public string Cadena(string cadena)
+        {
+             String source = cadena; //Original text
+             String[] result = source.Split(new char[] { ' ', ' ' });
+             return result[0];   
+        }
+
     }
 }

@@ -37,8 +37,9 @@ namespace System_Prestamos_Lf.Presentacion
                 var ResultadoValidacion = Usuarios.VerificarInicioSesión(txtuser.Text, txtpass.Password);
                 if ((ResultadoValidacion == true) && (txtuser.Text == AccesoComun.Cache.CacheUsuario.NOMBRE_USUARIO) && (txtpass.Password == AccesoComun.Cache.CacheUsuario.CONTRASEÑA))
                 {
-                    MessageBox.Show(string.Format("¡Bienvenido(a) al sistema, {0} {1}!", AccesoComun.Cache.CacheUsuario.NOMBRE_EMPLEADO, AccesoComun.Cache.CacheUsuario.APELLIDO_EMPLEADO));
-                  
+                    PantallaDeCarga loading = new PantallaDeCarga();
+                    loading.Show();
+                    this.Close();
                 }
                 else
                 {
