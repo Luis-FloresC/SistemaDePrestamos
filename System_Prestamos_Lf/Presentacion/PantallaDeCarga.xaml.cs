@@ -60,7 +60,8 @@ namespace System_Prestamos_Lf.Presentacion
                 {
 
                     timer.Stop();
-                    MessageBox.Show("Listo");
+                    MenuPrincipal menu = new MenuPrincipal();
+                    menu.Show();
                     this.Close();
                 }
             }));

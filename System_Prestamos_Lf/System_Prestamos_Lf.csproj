@@ -110,6 +110,9 @@
     <Compile Include="Presentacion\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\MenuPrincipal.xaml.cs">
+      <DependentUpon>MenuPrincipal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\PantallaDeCarga.xaml.cs">
       <DependentUpon>PantallaDeCarga.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentacion\MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\PantallaDeCarga.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +159,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Base de Datos\QuerySystemLf.sql" />
+    <Resource Include="Recursos\img\closeBtn_default.png" />
+    <Resource Include="Recursos\img\closeBtn_MouseOver.png" />
+    <Resource Include="Recursos\img\img_background.png" />
+    <Resource Include="Recursos\img\tgBtn_default.png" />
+    <Resource Include="Recursos\img\tgBtn_MouseOver.png" />
     <Resource Include="Recursos\img\Logo_O.ico" />
     <Resource Include="Recursos\img\Fondo_03.png" />
     <Resource Include="Recursos\img\Logo.png" />
