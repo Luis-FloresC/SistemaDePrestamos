@@ -190,11 +190,10 @@
 
                 <Button x:Name="CloseBtn"
                         Grid.Column="1"
-                        Grid.Row="1"
                         Height="40"
                         Width="40"
                         BorderThickness="0"
-                        Style="{StaticResource Close_btn}" Click="CloseBtn_Click">
+                        Style="{StaticResource Close_btn}" Click="CloseBtn_Click" Margin="34,12,16,38" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
                     <Button.Background>
 
@@ -508,8 +507,8 @@
 
                         <!--// Settings //-->
 
-                        
-                        
+
+
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
                                       >

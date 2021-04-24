@@ -1,0 +1,268 @@
+﻿<UserControl x:Class="System_Prestamos_Lf.Presentacion.Clientes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:System_Prestamos_Lf.Presentacion"
+             xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d" 
+             
+             Height="auto" Width="1000">
+    <Grid Background="#23262B">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:ColorZone Mode="Inverted" Padding="16" Background="#2E333A" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,0">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True" Margin="0,0,0,0">
+                    
+                    <ComboBox
+                                SelectedIndex="0"
+                                 Margin="10,0,0,0"
+                                 BorderThickness="0"
+                                 Background="#2E333A"
+                                 materialDesign:ColorZoneAssist.Mode="Inverted"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
+                                BorderBrush="{DynamicResource MaterialDesignPaper}">
+                        <ComboBoxItem Content="Identidad" />
+                        <ComboBoxItem Content="Nombre" />
+                       
+                    </ComboBox>
+       <materialDesign:ColorZone Mode="Inverted"
+                                 Background="#23262B"
+                                 Padding="8 4 8 4"
+                                 CornerRadius="2"
+                                 Panel.ZIndex="1"
+                                 Margin="16 0 0 0"
+                                 
+                                 materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        <Grid Background="#23262B">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="Search" Opacity=".56" Foreground="White" />
+                            </Button>
+                            <TextBox  Grid.Column="1" Margin="8 0 0 0" materialDesign:HintAssist.Hint="Buscar un Cliente"
+                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                      materialDesign:ColorZoneAssist.Mode="Inverted"
+                                      Background="#23262B"
+                                      Foreground="White"
+                                      BorderThickness="0" MinWidth="200" VerticalAlignment="Center" />
+                           
+                        </Grid>
+                    </materialDesign:ColorZone>
+                    <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0">
+                        <materialDesign:PackIcon Kind="Send" Margin="0" />
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+
+            <StackPanel Width="600" Background="#23262B" Grid.Column="1" Grid.Row="1">
+
+
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Lista de Clientes" Margin="10 0" Foreground="White" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+
+                    <DataGrid x:Name="DataGridClientes"
+                       Width="auto" Height="auto"
+                       CanUserAddRows="False"
+                       IsReadOnly="True" 
+                       HorizontalGridLinesBrush="White" 
+                       VerticalGridLinesBrush="White" 
+                       GridLinesVisibility="All" 
+                       SelectionChanged="DataGridClientes_SelectionChanged" 
+                        />
+
+
+                </StackPanel>
+
+                <TextBlock Text="Total: " Name="txtTotal" Margin="10 0" Foreground="White" FontSize="20"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+
+
+                    <Button Width="100" Height="30" Style="{StaticResource MaterialDesignRaisedButton}"
+                            BorderThickness="2" BorderBrush="#007DB7" 
+                            Background="#007DB7"
+                            Foreground="White" 
+                            ToolTip="Registrar Cliente"
+                            Click="BtnGuardar_Click"
+                            x:Name="BtnGuardar"
+                            Content="Guardar" />
+
+                    <Button Width="100" Height="30" Style="{StaticResource MaterialDesignRaisedButton}"
+                            BorderThickness="2" BorderBrush="#007DB7" 
+                            Background="#007DB7"
+                            Foreground="White" 
+                            ToolTip="Modificar un Empleado"
+                            Click="BtnModificar_Click"
+                            x:Name="BtnModificar"
+                            Content="Modificar" Margin="10" />
+
+                    <Button Width="100" Height="30" Style="{StaticResource MaterialDesignRaisedButton}"
+                            BorderThickness="2" BorderBrush="#29AA20" 
+                            Background="#29AA20"
+                            Foreground="White" 
+                            Click="btnLimpiar_Click"
+                            ToolTip="Limpiar todos los campos"
+                            x:Name="btnLimpiar"
+                            Margin="10"
+                            Content="Limpiar" />
+
+                    <Button Width="100" Height="30" Style="{StaticResource MaterialDesignRaisedButton}"
+                            BorderThickness="2" BorderBrush="#DE1623" 
+                            Background="#DE1623"
+                            Foreground="White" 
+                            ToolTip="Eliminar un Empleado"
+                            x:Name="btnEliminar"
+                            Click="btnEliminar_Click"
+                            Margin="10"
+                            Content="Eliminar" />
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Width="350" Background="#2E333A" x:Name="Panel2">
+
+                <TextBlock Text="Clientes" Margin="20"  Foreground="White" TextAlignment="Center" FontSize="26" FontFamily="Georgia"></TextBlock>
+
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="IdentificationCard" Width="25" Height="25" Foreground="White"/>
+                    <TextBox Margin="10 0" x:Name="txtDNI" materialDesing:HintAssist.Hint="Identidad del Cliente" 
+                             Foreground="White" Width="280" 
+                             Text=""
+                             
+                             MaxLength="50"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             BorderBrush="white" CaretBrush="#FFD94448" 
+                             SelectionBrush="#FFD94448"/>
+                </StackPanel>
+
+                
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="Person" Width="25" Height="25" Foreground="White"/>
+                    <TextBox Margin="10 0" x:Name="txtNombre" materialDesing:HintAssist.Hint="Nombre del Cliente" 
+                             Foreground="White" Width="280" 
+                             Text=""
+                             
+                             MaxLength="50"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             BorderBrush="white" CaretBrush="#FFD94448" 
+                             SelectionBrush="#FFD94448"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="Person" Width="25" Height="25" Foreground="White"/>
+                    <TextBox Margin="10 0" x:Name="txtApellido" materialDesing:HintAssist.Hint="Apellido del Cliente" 
+                             Foreground="White" Width="280" 
+                             Text=""
+                             
+                             MaxLength="50"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             BorderBrush="white" CaretBrush="#FFD94448" 
+                             SelectionBrush="#FFD94448"/>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="GenderMaleFemale" Width="25" Height="25" Foreground="White"/>
+                    <ComboBox Margin="10 0" x:Name="cmbNombreEmpleado" materialDesing:HintAssist.Hint="Genero" 
+                             Foreground="White" Width="276" 
+                             BorderBrush="white" 
+                             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                             materialDesing:ColorZoneAssist.Mode="Inverted">
+                        <ComboBoxItem Content="Masculino"/>
+                        <ComboBoxItem Content="Femenino"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="Phone" Width="25" Height="25" Foreground="White"/>
+                    <TextBox Margin="10 0" x:Name="txtTelefono" materialDesing:HintAssist.Hint="Telefono" 
+                             Foreground="White" Width="280" 
+                             Text=""
+                              MaxLength="20"
+                             
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             BorderBrush="white" CaretBrush="#FFD94448" 
+                             SelectionBrush="#FFD94448"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="Email" Width="25" Height="25" Foreground="White"/>
+                    <TextBox Margin="10 0" x:Name="txtEmail" materialDesing:HintAssist.Hint="Correo Electronico" 
+                             Foreground="White" Width="280" 
+                             Text=""
+                              MaxLength="32"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             BorderBrush="white" CaretBrush="#FFD94448" 
+                             SelectionBrush="#FFD94448"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="AddressMarker" Width="25" Height="25" Foreground="White"/>
+                    <TextBox Margin="10 0" x:Name="txtDireccion" materialDesing:HintAssist.Hint="Direccion" 
+                             Foreground="White" Width="280" 
+                             TextWrapping="Wrap"
+                             MaxLength="250"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             SpellCheck.IsEnabled="True"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text=""
+                             BorderBrush="white" CaretBrush="#FFD94448" 
+                             SelectionBrush="#FFD94448"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <materialDesing:PackIcon Kind="ListStatus" Width="25" Height="25" Foreground="White"/>
+                    <CheckBox Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}"
+                              IsChecked="True"
+                              Margin="10 0"
+                              Background="White"
+                              Width="280"
+                              Foreground="White"
+                              Content="Habilitado" />
+                </StackPanel>
+
+
+            
+
+            </StackPanel>
+
+
+
+        </StackPanel>
+
+
+
+
+
+    </Grid>
+</UserControl>

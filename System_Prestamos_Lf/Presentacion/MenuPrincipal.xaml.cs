@@ -81,6 +81,10 @@ namespace System_Prestamos_Lf.Presentacion
                 case 0:
                     
                     break;
+                case 1:
+                    BG.Children.Clear();
+                    BG.Children.Add(new Clientes());
+                    break;
                 default:
                     break;
             }
