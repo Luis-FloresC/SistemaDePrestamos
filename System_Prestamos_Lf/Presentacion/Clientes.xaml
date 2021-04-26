@@ -75,8 +75,8 @@
 
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-
-            <StackPanel Width="600" Background="#23262B" Grid.Column="1" Grid.Row="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Width="600" Background="#23262B" Grid.Column="1" Grid.Row="1">
 
 
 
@@ -145,7 +145,8 @@
                 </StackPanel>
 
             </StackPanel>
-
+            </ScrollViewer>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Width="350" Background="#2E333A" x:Name="Panel2">
 
                 <TextBlock Text="Clientes" Margin="20"  Foreground="White" TextAlignment="Center" FontSize="26" FontFamily="Georgia"></TextBlock>
@@ -255,7 +256,7 @@
             
 
             </StackPanel>
-
+            </ScrollViewer>
 
 
         </StackPanel>
