@@ -114,8 +114,8 @@
                             Content="Guardar" />
 
                     <Button Width="100" Height="30" Style="{StaticResource MaterialDesignRaisedButton}"
-                            BorderThickness="2" BorderBrush="#007DB7" 
-                            Background="#007DB7"
+                            BorderThickness="2" BorderBrush="#FFE57208" 
+                            Background="#FFE57208"
                             Foreground="White" 
                             ToolTip="Modificar un Empleado"
                             Click="BtnModificar_Click"
