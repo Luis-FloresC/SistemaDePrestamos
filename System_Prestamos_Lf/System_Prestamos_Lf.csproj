@@ -106,6 +106,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Clientes.cs" />
     <Compile Include="Dominio\Empleados.cs" />
     <Compile Include="Presentacion\Clientes.xaml.cs">
       <DependentUpon>Clientes.xaml</DependentUpon>

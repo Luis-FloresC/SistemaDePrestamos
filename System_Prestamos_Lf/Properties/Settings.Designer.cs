@@ -33,5 +33,15 @@ namespace System_Prestamos_Lf.Properties {
                 return ((string)(this["PrestamosDb"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=SYSTEM_PRESTAMOS_LF;Integrated Security=True")]
+        public string PrestamoDb2 {
+            get {
+                return ((string)(this["PrestamoDb2"]));
+            }
+        }
     }
 }

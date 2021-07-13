@@ -12,19 +12,35 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace System_Prestamos_Lf.Presentacion
 {
+    
     /// <summary>
     /// Lógica de interacción para Clientes.xaml
     /// </summary>
     public partial class Clientes : UserControl
     {
+        private DataTable DataTableClientes = new DataTable();
+        private Dominio.Clientes ClssClientes = new Dominio.Clientes();
         public Clientes()
         {
             InitializeComponent();
+            MostrarDatosDataGridProveedores();
         }
 
+        /// <summary>
+        /// Metodo para Cargar los datos en el DatagridView
+        /// </summary>
+        private void MostrarDatosDataGridProveedores()
+        {
+            DataTableClientes.Clear();
+            DataTableClientes = ClssClientes.DatagridClientes();
+            DataGridClientes.ItemsSource = DataTableClientes.DefaultView;
+            var TotalRows = DataGridClientes.Items.Count;
+            txtTotal.Text = "Total: " + TotalRows;
+        }
         private void DataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

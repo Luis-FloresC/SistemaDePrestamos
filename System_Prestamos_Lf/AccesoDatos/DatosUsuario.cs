@@ -16,7 +16,12 @@ namespace System_Prestamos_Lf.AccesoDatos
 
         AccesoComun.Cache.CacheUsuario cache = new AccesoComun.Cache.CacheUsuario();
        
-
+        /// <summary>
+        /// Metodo para verificar el inicio de sesion
+        /// </summary>
+        /// <param name="user">nombre de Usuario</param>
+        /// <param name="pass">Contraseña</param>
+        /// <returns></returns>
         public bool InicioDeSesion(string user, string pass)
         {
             try
@@ -66,6 +71,37 @@ namespace System_Prestamos_Lf.AccesoDatos
 
         }
 
+        /// <summary>
+        /// Metodo para llenar el datagrid del Formulario de Clientes
+        /// </summary>
+        /// <returns></returns>
+        public DataTable DataTableClientes()
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                using (var conexion = GetConnection())
+                {
+                    string query = @"SELECT  [COD_CLIENTE] [#]
+                                  ,[IDENTIDAD_DEL_CLIENTE] [Identidad]
+                                   ,CONCAT(NOMBRE_CLIENTE,' ',APELLIDO_CLIENTE)[Nombre]
+                                  ,[SEXO] [Genero]
+                                  ,[TELEFONO_CLIENTE] [Telefono]
+                                  ,case when COD_ESTADO = 1 then 'Activo' else 'Inactivo' end 'Estado'
+                                  FROM [SYSTEM_PRESTAMOS_LF].[dbo].[CLIENTES]";
+
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
     }
 }
